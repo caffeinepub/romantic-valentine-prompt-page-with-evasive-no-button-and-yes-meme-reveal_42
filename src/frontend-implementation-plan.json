@@ -1,0 +1,91 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine prompt single-page UI with evasive No and Yes meme reveal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a single-page romantic Valentine prompt UI with a pink/white theme, optimized for iPad Chrome, showing exactly “Yes” and “No” options.",
+      "acceptanceCriteria": [
+        "On load, the page shows a single clear prompt asking to be the Valentine and displays exactly two options labeled “Yes” and “No”.",
+        "The visual theme is consistently romantic with a pink-and-white palette (background, typography, buttons) and responsive spacing for tablet screens.",
+        "All user-facing text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page Valentine prompt screen as the app’s root view (prompt + two buttons), using Tailwind for a polished, tablet-friendly pink/white layout. If using any shadcn-ui components (e.g., Button/Card), use them via imports only (do not modify frontend/src/components/ui); verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add Tailwind directives and minimal global styling/CSS variables to support a consistent pink/white romantic theme and comfortable iPad spacing (no inline styles required in the plan)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Make the “No” button evasive on hover and touch/pointer down while staying visible within the viewport and never triggering a decline flow.",
+      "acceptanceCriteria": [
+        "When the pointer hovers over the “No” button, it repositions away from the pointer.",
+        "On touch devices (iPad), attempting to tap the “No” button causes it to move before it can be clicked.",
+        "The “No” button never becomes permanently inaccessible off-screen; it stays within the visible page area after each move.",
+        "The “No” button does not trigger any “decline” flow or success state."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ValentinePrompt.tsx",
+          "operation": "create",
+          "description": "Implement the prompt UI behavior logic for the evasive “No” button: handle hover for pointer devices and pointer/touch-down for iPad; compute safe random positions that keep the button fully within the visible container/viewport; ensure the interaction moves the button before a click can register and does not change app state. If using any shadcn-ui components (e.g., Button), verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the ValentinePrompt component into the root view and connect its callbacks/state so “No” never triggers a decline state while “Yes” can transition to the success state. If using any shadcn-ui components, verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On “Yes”, transition to a celebratory success state showing the exact message and a locally served meme image in a romantic presentation.",
+      "acceptanceCriteria": [
+        "Clicking “Yes” switches the UI to a celebratory/success view (no longer shows the two-choice prompt as the primary content).",
+        "The success view displays the provided message exactly: “No pen, no paper but you still draw my attention”.",
+        "A meme-style image is shown in the success view (locally served as a static asset, not loaded from an external URL)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ValentineSuccess.tsx",
+          "operation": "create",
+          "description": "Create the success-state view that displays the exact message “No pen, no paper but you still draw my attention” and renders the locally served meme image with romantic styling consistent with the pink/white theme. If using any shadcn-ui components (e.g., Card), verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add success-state UI switching on “Yes” (replace the prompt as the primary content) and render ValentineSuccess after confirmation. If using any shadcn-ui components, verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add the required generated meme image as a static asset and render it in the Yes success state.",
+      "acceptanceCriteria": [
+        "The generated image file(s) exist under frontend/public/assets/generated with the exact filenames specified in imageRequirements.required.",
+        "The frontend references the image(s) via static asset paths and displays them after clicking “Yes”."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-meme.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the required generated static image asset (meme-style romantic image with the exact text) at frontend/public/assets/generated/valentine-meme.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/src/components/ValentineSuccess.tsx",
+          "operation": "modify",
+          "description": "Reference and display the static asset at frontend/public/assets/generated/valentine-meme.dim_1200x800.png in the success state (no external URLs). If using any shadcn-ui components, verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

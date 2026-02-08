@@ -1,0 +1,7 @@
+{
+  "frontend/src/App.tsx": "Main application component that manages the state between the Valentine prompt and success views, with a romantic footer.",
+  "frontend/src/components/ValentinePrompt.tsx": "Interactive Valentine prompt component with an evasive \"No\" button that moves away on hover/touch and a \"Yes\" button that triggers acceptance.",
+  "frontend/src/components/ValentineSuccess.tsx": "Success celebration component that displays the romantic message and meme image after the user clicks \"Yes\".",
+  "frontend/src/index.css": "Global styles with a romantic pink/white OKLCH color system, custom romantic theme utilities, and fade-in animations.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended border radius utilities for the romantic design system."
+}

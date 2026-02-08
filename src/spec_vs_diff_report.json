@@ -1,0 +1,74 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-08T17:11:18.503Z",
+  "summary": "Core Valentine prompt/success single-page UI is implemented with an evasive “No” button (hover + pointer down) and a “Yes” click that reveals a local meme image and the required message. However, the exact button labeling and required static asset file presence are not evidenced, and several unrequested authentication/backend-related features were added (Internet Identity hooks, actor creation, backend canister stub), plus an external link in the footer.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "On load, the page shows a single clear prompt asking to be the Valentine and displays exactly two options labeled “Yes” and “No”.",
+      "reason": "The “Yes” option is not labeled exactly “Yes”; it is rendered as “Yes! 💕”, so the AC about labels is not met as written.",
+      "evidence": [
+        "frontend/src/components/ValentinePrompt.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Add the required generated image(s) as static assets under frontend/public/assets/generated with the exact required filename(s), and render them in the Yes success state.",
+      "reason": "The success component references the required path/filename, but the diff summary does not show the image file being added under frontend/public/assets/generated.",
+      "evidence": [
+        "frontend/src/components/ValentineSuccess.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added Internet Identity authentication provider/hook and actor creation logic (client auth + identity-based actor), which is explicitly a non-goal (no third-party auth providers).",
+      "reason": "BuildRequest forbids adding user accounts/Internet Identity authentication; diff introduces InternetIdentityProvider, AuthClient usage, and actor hooks.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Added backend canister stub file.",
+      "reason": "BuildRequest specifies a fully client-side experience and does not request backend changes; a new backend/main.mo was added.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Added React Query (QueryClientProvider) plumbing for data fetching/caching.",
+      "reason": "Not required for a simple client-only Valentine prompt/reveal; appears tied to the added actor/auth infrastructure.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Footer includes an external link to caffeine.ai.",
+      "reason": "Not requested and introduces external navigation; the request emphasizes a fully client-side experience and no external hosting/services (at minimum, this is extra/unrequested content).",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/ValentinePrompt.tsx",
+    "frontend/src/components/ValentineSuccess.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

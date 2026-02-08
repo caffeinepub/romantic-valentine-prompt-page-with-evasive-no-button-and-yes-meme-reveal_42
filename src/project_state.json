@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Interactive romantic-themed Valentine web page (HTML/CSS/JS) with Yes/No prompt, evasive No button on hover, and a meme image/message shown after Yes; designed to run in Chrome on iPad.",
+  "architectural_notes": [
+    "Single-page static HTML/CSS/JS designed for iPad Chrome touch + mouse/trackpad interactions."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Meme-style romantic image with the text “No pen, no paper but you still draw my attention” in the design (valentine-meme.dim_1200x800.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-romantic-themed-valentine-prompt-ui-that-asks-the-user-will-you-be-my-valentine-with-two-prominent-options-yes-and-no-using-a-pink-and-white-color-scheme-and-a-simple-polished-layout-suitable-for-ipad-chrome",
+      "title": "Create a single-page, romantic-themed Valentine prompt UI that asks the user: \"Will you be my Valentine?\" with two prominent options: \"Yes\" and \"No\", using a pink-and-white color scheme and a simple, polished layout suitable for iPad Chrome.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-no-option-as-an-evasive-button-that-moves-away-when-the-user-attempts-to-interact-with-it-hover-on-pointer-devices-and-touch-pointer-down-on-ipad-making-it-effectively-impossible-to-click-while-remaining-visible-within-the-viewport",
+      "title": "Implement the \"No\" option as an evasive button that moves away when the user attempts to interact with it (hover on pointer devices and touch/pointer down on iPad), making it effectively impossible to click while remaining visible within the viewport.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-clicks-yes-transition-the-page-to-a-success-state-that-displays-a-meme-image-containing-the-message-no-pen-no-paper-but-you-still-draw-my-attention-exact-wording-with-a-romantic-presentation-matching-the-page-theme",
+      "title": "When the user clicks \"Yes\", transition the page to a success state that displays a meme image containing the message: \"No pen, no paper but you still draw my attention\" (exact wording), with a romantic presentation matching the page theme.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-image-s-into-the-frontend-as-static-assets-under-frontend-public-assets-generated-and-render-them-in-the-yes-success-state",
+      "title": "Add the required generated image(s) into the frontend as static assets under frontend/public/assets/generated and render them in the Yes success state.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a simple romantic Valentine prompt web page with pink/white theme (HTML/CSS/JS) runnable in Chrome on iPad",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add Yes/No options where the No button moves away on hover to prevent clicking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "On Yes click, display a meme image with the text: \"No pen, no paper but you still draw my attention\"",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Romantic Valentine prompt page with evasive No button and Yes meme reveal",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

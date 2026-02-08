@@ -1,0 +1,95 @@
+{
+  "kind": "build_request",
+  "title": "Romantic Valentine prompt page with evasive No button and Yes meme reveal",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page, romantic-themed Valentine prompt UI that asks the user: \"Will you be my Valentine?\" with two prominent options: \"Yes\" and \"No\", using a pink-and-white color scheme and a simple, polished layout suitable for iPad Chrome.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create an interactive web page as a surprise for my girlfriend... to ask her to be my Valentine... themed romantically with a pink and white color scheme and be fully interactive... run it on my iPad using Chrome"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On load, the page shows a single clear prompt asking to be the Valentine and displays exactly two options labeled “Yes” and “No”.",
+        "The visual theme is consistently romantic with a pink-and-white palette (background, typography, buttons) and responsive spacing for tablet screens.",
+        "All user-facing text is in English."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the \"No\" option as an evasive button that moves away when the user attempts to interact with it (hover on pointer devices and touch/pointer down on iPad), making it effectively impossible to click while remaining visible within the viewport.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "When she hovers her cursor over No, it should move away so she cannot click it, forcing her to click only on Yes."
+        ]
+      },
+      "acceptanceCriteria": [
+        "When the pointer hovers over the “No” button, it repositions away from the pointer.",
+        "On touch devices (iPad), attempting to tap the “No” button causes it to move before it can be clicked.",
+        "The “No” button never becomes permanently inaccessible off-screen; it stays within the visible page area after each move.",
+        "The “No” button does not trigger any “decline” flow or success state."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "When the user clicks \"Yes\", transition the page to a success state that displays a meme image containing the message: \"No pen, no paper but you still draw my attention\" (exact wording), with a romantic presentation matching the page theme.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "When she clicks Yes, show her a meme image telling her \"No pen, no paper but you still draw my attention\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Yes” switches the UI to a celebratory/success view (no longer shows the two-choice prompt as the primary content).",
+        "The success view displays the provided message exactly: “No pen, no paper but you still draw my attention”.",
+        "A meme-style image is shown in the success view (locally served as a static asset, not loaded from an external URL)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add the required generated image(s) into the frontend as static assets under frontend/public/assets/generated and render them in the Yes success state.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "show her a meme image telling her \"No pen, no paper but you still draw my attention\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "The generated image file(s) exist under frontend/public/assets/generated with the exact filenames specified in imageRequirements.required.",
+        "The frontend references the image(s) via static asset paths and displays them after clicking “Yes”."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use React + TypeScript with Tailwind CSS and existing UI components; do not modify any files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT.",
+    "No external hosting, external databases, or third-party auth providers; keep the experience fully client-side.",
+    "Ensure interaction works on iPad Chrome (touch support in addition to hover behavior)."
+  ],
+  "nonGoals": [
+    "Building a multi-page site or adding additional features beyond the Valentine prompt and Yes success reveal.",
+    "Adding backend persistence, user accounts, or Internet Identity authentication.",
+    "Integrating external meme/image URLs or third-party APIs."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Meme-style romantic image with the text “No pen, no paper but you still draw my attention” in the design (valentine-meme.dim_1200x800.png)"
+    ],
+    "edits": []
+  }
+}

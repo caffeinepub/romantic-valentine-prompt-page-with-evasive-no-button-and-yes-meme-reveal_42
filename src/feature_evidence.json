@@ -1,0 +1,80 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-single-page-romantic-themed-valentine-prompt-ui-that-asks-the-user-will-you-be-my-valentine-with-two-prominent-options-yes-and-no-using-a-pink-and-white-color-scheme-and-a-simple-polished-layout-suitable-for-ipad-chrome",
+      "featureTitle": "Create a single-page, romantic-themed Valentine prompt UI that asks the user: \"Will you be my Valentine?\" with two prominent options: \"Yes\" and \"No\", using a pink-and-white color scheme and a simple, polished layout suitable for iPad Chrome.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-no-option-as-an-evasive-button-that-moves-away-when-the-user-attempts-to-interact-with-it-hover-on-pointer-devices-and-touch-pointer-down-on-ipad-making-it-effectively-impossible-to-click-while-remaining-visible-within-the-viewport",
+      "featureTitle": "Implement the \"No\" option as an evasive button that moves away when the user attempts to interact with it (hover on pointer devices and touch/pointer down on iPad), making it effectively impossible to click while remaining visible within the viewport.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ValentinePrompt.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-when-the-user-clicks-yes-transition-the-page-to-a-success-state-that-displays-a-meme-image-containing-the-message-no-pen-no-paper-but-you-still-draw-my-attention-exact-wording-with-a-romantic-presentation-matching-the-page-theme",
+      "featureTitle": "When the user clicks \"Yes\", transition the page to a success state that displays a meme image containing the message: \"No pen, no paper but you still draw my attention\" (exact wording), with a romantic presentation matching the page theme.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ValentineSuccess.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-image-s-into-the-frontend-as-static-assets-under-frontend-public-assets-generated-and-render-them-in-the-yes-success-state",
+      "featureTitle": "Add the required generated image(s) into the frontend as static assets under frontend/public/assets/generated and render them in the Yes success state.",
+      "files": [
+        "frontend/src/components/ValentineSuccess.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
